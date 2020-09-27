@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+
+<div class="card-body">
+                <h2 ><span>Invoice Number:</span>{{ invoice.id }}</h2>
+                <p class="card-text text-muted "> <span class="text-primary">Shipping Address:</span> {{ invoice.shipping_address }} </p>
+                   </div>
+                
+         <div>
+<table class="table table-bordered table-hover table-grey" >
+	
+	<th>Product</th>
+	<th>Price</th>
+	<th>Quantity</th>
+	{% for detail in details  %}
+	<tr>
+		
+		<td>{{detail.products}}</td>
+		<td>{{detail.products.price}}</td>
+		<td>{{detail.quantity}}</td>
+	</tr>
+	{% endfor%}
+</table>
+</div>
+ <h2 class="card-title"><span class="text-primary">Total:</span>{{ total }}</h2>
+</div>
+{% endblock %}

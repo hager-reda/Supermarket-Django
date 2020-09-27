@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div  class="card card-body container"  style=" margin:5px auto 0px auto;">
+<a href="/print/{{invoice_id}}" class="btn btn-danger"> Print</a>
+<div>
+<table class="table table-bordered table-hover table-grey" >
+
+	<th>ID</th>
+	<th>Product</th>
+	<th>Price</th>
+	{% for detail in details  %}
+	<tr>
+		<td>{{detail.id}}</td>
+		<td>{{detail.products}}</td>
+		<td>{{detail.products.price}}</td>
+	</tr>
+	{% endfor%}
+</table>
+ <h2 class="card-title"><span class="text-primary">Total:</span>{{ total }}</h2>
+</div>
+</div>
+{% endblock %}

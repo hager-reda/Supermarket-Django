@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="card-body m-5">
+	<h1> New Invoice</h1>
+	<form  method="POST">{% csrf_token%}
+		{{new_invoice.as_p}}
+		
+		{{invoice_detail.as_p}}
+		<button type=sumbit >Save</button>
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div  class="card card-body container"  style=" margin:5px auto 0px auto;">
+<div class="col-md-7 mt-3 left">
+    <a href="/newCustomer/" class="btn btn-danger btn-block">Add New Customer &rarr;</a>
+</div>
+<div>
+<table class="table table-bordered table-hover table-grey" >
+
+	
+	<th>Name</th>
+	<th>phone</th>
+	<th>Address</th>
+	<th>Email</th>
+	{% for customer in customers  %}
+	<tr>
+		
+		<td>{{customer.name}}</td>
+		<td>{{customer.phone}}</td>
+		<td>{{customer.address}}</td>
+		<td>{{customer.email}}</td>
+
+		<td> <a href="/customers/{{customer.id}}" class="btn btn-dark"> Show</a></td>
+
+
+		<td> <a href="/newInvoice/" class="btn btn-primary"> Add Invoice</a></td>		
+		<td> <a  href="/block/{{customer.id}}" class="btn btn-danger"  > Block </a></td>
+
+	</tr>
+	{% endfor%}
+</table>
+</div>
+</div>
+
+
+{% endblock %}
+
+

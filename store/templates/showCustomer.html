@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<div class="col-md-11 mt-3 left">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h2 class="card-title"><span class="text-primary">Name:</span>{{ customer.name }}</h2>
+                <p class="card-text text-muted h6"> <span class="text-primary">Phone:</span> {{ customer.phone }} </p>
+                <p class="card-text text-muted h6"><span class="text-primary">Email:</span> {{ customer.email }} </p>
+                <p class="card-text text-muted h6 tagStyle" style="color: blue "><span class="text-primary">Address:</span> {{customer.address}}</p>
+                   
+                <div class="text-center">
+                <div>
+                  <table class="table table-bordered table-hover table-grey" >
+
+                    <th>ID</th> 
+                    <th>Created At</th>
+                    <th>Shipping Addres</th>
+                    {% for invoice in all_invoices  %}
+                    <tr>
+                        <td>{{invoice.id}}</td>
+                        <td>{{invoice.created_at}}</td>
+                        <td>{{invoice.shipping_address}}</td>        
+                        <td> <a href="/invoices/{{invoice.id}}" class="btn btn-dark"> Show</a></td>
+
+                    </tr>
+                    {% endfor%}
+                </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

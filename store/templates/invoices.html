@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div  class="card card-body container"  style=" margin:5px auto 0px auto;">
+<div class="col-md-7 mt-3 left">
+    <a href="/newInvoice/" class="btn btn-danger btn-block">Add New Invoice &rarr;</a>
+</div>
+<div>
+<table class="table table-bordered table-hover table-grey" >
+
+	
+	<th>Number</th>
+	<th>Cutomer</th>
+	<th>shiping Address</th>
+	<th>Date</th>
+	{% for invoice in invoices  %}
+	<tr>
+		
+		<td>{{invoice.id}}</td>
+		<td>{{invoice.customer}}</td>
+		<td>{{invoice.shipping_address}}</td>
+		<td>{{invoice.created_at}}</td>
+
+		<td> <a href="/invoices/{{invoice.id}}" class="btn btn-dark">Show Details</a></td>
+
+	</tr>
+	{% endfor%}
+</table>
+</div>
+</div>
+
+
+<script type="text/javascript">
+</script>
+
+{% endblock %}
+
+
